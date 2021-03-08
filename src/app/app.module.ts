@@ -10,6 +10,7 @@ import { CurrentWeatherComponent } from './weather/current/current.component';
 import { ForecastWeatherComponent } from './weather/forecast/forecast.component';
 
 import { WeatherApi } from './services/weatherapi.service';
+import { UserLocation } from './services/location.service';
 
 // main app routes
 const appRoutes: Routes = [
@@ -30,7 +31,7 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [WeatherApi],
+  providers: [WeatherApi, UserLocation],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

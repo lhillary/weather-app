@@ -3,6 +3,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { LocationData } from '../models/LocationData.model';
+import { Coordinates } from '../models/Coordinates.model';
+import { ENV } from '../core/env.config';
 
 @Injectable({
     providedIn: 'root'
@@ -12,20 +14,31 @@ export class WeatherApi {
     // URLs & Key
     private readonly currentUrl = 'https://api.openweathermap.org/data/2.5/weather';
     private readonly forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast';
-    private readonly apiKey = 'adc853cd1d9a6e65d875af9c95a657a4';
 
     // Setting up httpclient
     constructor(private http: HttpClient) { }
 
-    // Getting the current weather
+    // Getting the current weather by user input
     public getCurrent(location: LocationData) {
-        return this.http.get(`${this.currentUrl}?q=${location.city},${location.state},${location.country}&appid=${this.apiKey}`)
+        return this.http.get(`${this.currentUrl}?q=${location.city},${location.state},${location.country}&units=imperial&appid=${ENV.BASE_API}`)
         .pipe(catchError(this.handleError));
     }
 
-    // Getting the five day forecast
+    // Getting the current weather by geolocation
+    public getCurrentByCoordinates(coordinates: Coordinates) {
+        return this.http.get(`${this.currentUrl}?lat=${coordinates.lat}&lon=${coordinates.lon}&units=imperial&appid=${ENV.BASE_API}`)
+        .pipe(catchError(this.handleError));
+    }
+
+    // Getting the five day forecast by user input
     public getForecast(location: LocationData) {
-        return this.http.get(`${this.forecastUrl}?q=${location.city},${location.state},${location.country}&appid=${this.apiKey}`)
+        return this.http.get(`${this.forecastUrl}?q=${location.city},${location.state},${location.country}&units=imperial&appid=${ENV.BASE_API}`)
+        .pipe(catchError(this.handleError));
+    }
+
+    // Getting the five day forecast by geolocation
+    public getForecastByCoordinates(coordinates: Coordinates) {
+        return this.http.get(`${this.forecastUrl}?lat=${coordinates.lat}&lon=${coordinates.lon}&units=imperial&appid=${ENV.BASE_API}`)
         .pipe(catchError(this.handleError));
     }
 
