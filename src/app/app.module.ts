@@ -1,18 +1,36 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CurrentWeatherComponent } from './weather/current/current.component';
+import { ForecastWeatherComponent } from './weather/forecast/forecast.component';
+
+import { WeatherApi } from './services/weatherapi.service';
+
+// main app routes
+const appRoutes: Routes = [
+  {path: '', component: CurrentWeatherComponent},
+  {path: 'forecast', component: ForecastWeatherComponent}
+]
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CurrentWeatherComponent,
+    ForecastWeatherComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [WeatherApi],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
