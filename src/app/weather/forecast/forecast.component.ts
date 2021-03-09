@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { WeatherApi } from '../../services/weatherapi.service';
 import { UserLocation } from '../../services/location.service';
 import { Coordinates } from '../../models/Coordinates.model';
+import * as moment from 'moment';
+
 @Component({
     selector: 'forecast-weather',
     templateUrl: './forecast.component.html',
@@ -72,20 +74,9 @@ export class ForecastWeatherComponent implements OnInit {
             if (result === 'list') {
 
                 for (let i = 0; i < results[result].length; i++) {
-                    //adding isolated date and time props
-                    let timeString = new Date(results[result][i].dt_txt);
-                    let timeOptions: {} = {
-                        hour: '2-digit',
-                        minute: '2-digit',
-                        hour12: true
-                    }
-                    let dateOptions: {} = {
-                        weekday: 'short',
-                        month: 'short',
-                        day: 'numeric'
-                    }
-                    let date = timeString.toLocaleDateString('en-US', dateOptions);
-                    let time = timeString.toLocaleTimeString('en-US', timeOptions);
+
+                    let date = moment(results[result][i].dt_txt).format("MMM Do YYYY");
+                    let time = moment(results[result][i].dt_txt).format("h:mm a");
 
                     // getting icon into props
                     let icon = this.urlFill(results[result][i].weather);

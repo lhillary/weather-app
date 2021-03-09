@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WeatherApi } from '../../services/weatherapi.service';
 import { UserLocation } from '../../services/location.service';
 import { Coordinates } from '../../models/Coordinates.model';
+import * as moment from 'moment';
 
 @Component({
     selector: 'current-weather',
@@ -59,21 +60,9 @@ export class CurrentWeatherComponent implements OnInit {
 
     // format the data
     createCurrent = (results: any) => {
-        let icon = this.urlFill(results.weather),
-            timeString = new Date(),
-            timeOptions: {} = {
-                hour: '2-digit',
-                minute: '2-digit',
-                hour12: true
-            },
-            dateOptions: {} = {
-                weekday: 'short',
-                month: 'short',
-                day: 'numeric'
-            };
-
-        let date = timeString.toLocaleDateString('en-US', dateOptions);
-        let time = timeString.toLocaleTimeString('en-US', timeOptions);
+        let icon = this.urlFill(results.weather);
+        let time = moment().format("h:mm a");
+        let date = moment().format("MMM Do YY");
 
         results.icon = icon;
         results.date = date;
