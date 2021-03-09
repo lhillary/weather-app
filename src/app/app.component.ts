@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, Renderer2 } from '@angular/core';
 
 import {
   Router,
@@ -15,8 +15,15 @@ import {
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'Weather App';
+
+  constructor(private renderer: Renderer2) {}
+
+  ngAfterViewInit() {
+    let loader = this.renderer.selectRootElement('.wa-loading');
+    this.renderer.setStyle(loader, 'display', 'none');
+  }
 }
 
 
