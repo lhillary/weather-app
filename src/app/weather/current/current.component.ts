@@ -59,31 +59,31 @@ export class CurrentWeatherComponent implements OnInit {
 
     // format the data
     createCurrent = (results: any) => {
-      let icon = this.urlFill(results.weather),
-          timeString = new Date(),
-          timeOptions: {} = {
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: true
-          },
-          dateOptions: {} = {
-            weekday: 'short',
-            month: 'short',
-            day: 'numeric'
-          }
+        let icon = this.urlFill(results.weather),
+            timeString = new Date(),
+            timeOptions: {} = {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true
+            },
+            dateOptions: {} = {
+                weekday: 'short',
+                month: 'short',
+                day: 'numeric'
+            };
 
         let date = timeString.toLocaleDateString('en-US', dateOptions);
         let time = timeString.toLocaleTimeString('en-US', timeOptions);
 
-      results.icon = icon;
-      results.date = date;
-      results.time = time;
+        results.icon = icon;
+        results.date = date;
+        results.time = time;
 
-      this.city = results.name;
-      this.country = results.sys.country;
-      this.date = date;
+        this.city = results.name;
+        this.country = results.sys.country;
+        this.date = date;
 
-      this.current.push(results);
+        this.current.push(results);
     }
 
     // filling the icon url
