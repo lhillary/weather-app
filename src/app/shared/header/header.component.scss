@@ -7,11 +7,12 @@
     justify-content: flex-end;
 
     .wa-logo {
-        color: #fff;
         position: absolute;
         margin: 0;
         left: 2em;
+        color: #fff;
         font-weight: 700;
+        font-size: 2.125rem;
 
         @media (max-width: 800px) {
             font-size: 1.75em;
@@ -20,6 +21,7 @@
         @media (max-width: 400px) {
             font-size: 1.25em;
         }
+        
     }
 
     .wa-menu {
@@ -44,7 +46,6 @@
     }
 
     .wa-nav {
-        width: 100%;
         display: flex; 
         justify-content: flex-end;
         position: relative;

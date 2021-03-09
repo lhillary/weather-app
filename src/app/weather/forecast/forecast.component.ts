@@ -104,7 +104,6 @@ export class ForecastWeatherComponent implements OnInit {
         
         // mapping date to its own new array to use for sorting in the template
         this.singleForecast = Array.from(new Set(this.forecasts.map(({date}) => date)));
-        console.log(this.forecasts);
     } 
 
     // filling the icon url

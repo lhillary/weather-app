@@ -1,5 +1,5 @@
 <header class="wa-header">
-    <h1 class="wa-logo">Weather App</h1>
+    <a class="wa-logo" routerLink="/">Weather App</a>
     <fa-icon class="wa-menu open" [icon]="faBars" (click)="toggleMenu()"></fa-icon>
     <nav class="wa-nav" [@toggleMenu]="{value: isOpen ? '1' : '0', params: { translateAmount: getAnimationTransformValue(), translateAmountOpen: getOpenAnimationTransformValue() }}">
         <fa-icon class="wa-menu close" [icon]="faTimes" (click)="toggleMenu()"></fa-icon>

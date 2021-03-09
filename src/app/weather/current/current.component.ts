@@ -84,7 +84,6 @@ export class CurrentWeatherComponent implements OnInit {
       this.date = date;
 
       this.current.push(results);
-      console.log(this.current)
     }
 
     // filling the icon url
