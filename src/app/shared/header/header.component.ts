@@ -1,6 +1,8 @@
 // added some stuff for listening to window size, adding animations, and using font awesome icons
 import { Component, HostListener } from '@angular/core';
-import { trigger, state, style, transition, animate, group } from '@angular/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
