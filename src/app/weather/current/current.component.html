@@ -1,13 +1,15 @@
-<section>
-    <h1>{{ date }}</h1>
-    <h3>{{ city }}, {{ country }}</h3>
-</section>
-<section>
-    <div *ngFor="let data of current">
-        <img src={{data.icon}} />
-        <p *ngFor="let weather of data.weather">{{weather.main}}</p>
-        <p>{{data.time}}</p>
-        <div>{{data.main.temp}}&#176; F</div>
-        <div>Feels like {{data.main.feels_like}}&#176; F</div>
-    </div>
-</section>
+<div class="wa-current-container">
+    <section class="wa-current-title">
+        <h1>{{ date }}</h1>
+        <h3>{{ city }}, {{ country }}</h3>
+    </section>
+    <section class="wa-current-card">
+        <div class="wa-current-card-contents" *ngFor="let data of current">
+            <img class="wa-icon" src={{data.icon}} />
+            <p class="wa-current-weather" *ngFor="let weather of data.weather">{{weather.main}}</p>
+            <p>Time: {{data.time}}</p>
+            <p>Temp: {{data.main.temp}}&#176; F</p>
+            <p>Feels like {{data.main.feels_like}}&#176; F</p>
+        </div>
+    </section>
+</div>

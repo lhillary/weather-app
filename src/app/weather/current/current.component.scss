@@ -1,0 +1,56 @@
+.wa-current-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .wa-current-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1em 0;
+        margin-top: 2em;
+    
+         h1 {
+             color: #084166;
+             margin: 0;
+         }
+    
+         h3 {
+             color: #419EDA;
+             margin: 0;
+         }
+    }
+    
+    .wa-current-card {
+        background-color: #fff;
+        min-width: 300px;
+        max-width: 300px;
+        padding: 3em;
+        border-radius: 40px;
+        margin: 1em;
+        box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+
+        @media (max-width: 600px) {
+            min-width: 200px;
+        }
+
+        @media (max-width: 350px) {
+            min-width: 100px;
+        }
+    
+        .wa-current-card-contents {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+    
+            img {
+                background-color: #DEEFFF;
+                border-radius: 50%;
+            }
+    
+            .wa-current-weather {
+                font-weight: 700;
+            }
+        }
+    }
+}
