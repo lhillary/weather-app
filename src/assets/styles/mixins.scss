@@ -1,0 +1,15 @@
+@mixin onHoverStandard($color) {
+    background-color: darken($color, 10%);
+}
+
+@mixin onHoverInline($color) {
+    color: darken($color, 10%);
+}
+
+@mixin onHoverLighten($color) {
+    color: lighten($color, 20%);
+}
+
+@mixin border-radius($radius: 50px) {
+    border-radius: $radius;
+}

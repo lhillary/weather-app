@@ -1,0 +1,15 @@
+.wa-header {
+    background-color: #084166;
+    padding: 2em 4em;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .wa-logo {
+        color: #fff;
+        position: absolute;
+        margin-bottom: 0;
+        left: 2em;
+    }
+}

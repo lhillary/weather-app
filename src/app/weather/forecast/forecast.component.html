@@ -1,12 +1,12 @@
 <div>
-    {{ city }}, {{country}}
+    {{ city }}, {{ country }}
 </div>
 <div *ngFor="let date of singleForecast"> {{ date }}
     <div *ngFor="let forecast of forecasts">
         <div *ngIf="forecast.date === date">
-            {{forecast.dt_txt}}
+            {{forecast.time}}
             {{forecast.main.temp}}
-            <div *ngFor="let weather of forecast.weather">{{weather.icon}}</div>
+            <img src={{forecast.iconUrl}} />
         </div>
     </div>
 </div>

@@ -11,6 +11,7 @@ import { ForecastWeatherComponent } from './weather/forecast/forecast.component'
 
 import { WeatherApi } from './services/weatherapi.service';
 import { UserLocation } from './services/location.service';
+import { HeaderComponent } from './shared/header/header.component';
 
 // main app routes
 const appRoutes: Routes = [
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     CurrentWeatherComponent,
-    ForecastWeatherComponent
+    ForecastWeatherComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
