@@ -2,8 +2,10 @@
     <h3 class="wa-error" *ngIf="error">{{errorMessage}}</h3>
     <section class="wa-forecast-title">
         <h1>{{ city }}, {{ country }}</h1>
+        <h3>Five-Day Forecast</h3>
     </section>
     <section class="wa-forecast-card-container">
+       <div class="wa-forecast-cards">
         <div class="wa-forecast-card" *ngFor="let date of singleForecast">
             <h3>{{ date }}</h3>
             <div class="wa-forecast-info" *ngFor="let forecast of forecasts">
@@ -14,5 +16,6 @@
                 </div>
             </div>
         </div>
+       </div>
     </section>
 </div>

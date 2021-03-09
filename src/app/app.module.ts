@@ -15,6 +15,7 @@ import { UserLocation } from './services/location.service';
 import { HeaderComponent } from './shared/header/header.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FooterComponent } from './shared/footer/footer.component';
 
 // main app routes
 const appRoutes: Routes = [
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
     AppComponent,
     CurrentWeatherComponent,
     ForecastWeatherComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

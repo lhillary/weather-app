@@ -1,4 +1,5 @@
 <div class="wa-current-container">
+    <h3 class="wa-error" *ngIf="error">{{errorMessage}}</h3>
     <section class="wa-current-title">
         <h1>{{ date }}</h1>
         <h3>{{ city }}, {{ country }}</h3>

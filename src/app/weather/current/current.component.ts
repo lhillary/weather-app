@@ -25,6 +25,8 @@ export class CurrentWeatherComponent implements OnInit {
     date: string = '';
     iconUrl: string = 'http://openweathermap.org/img/wn';
     current: any[] = [];
+    error = false;
+    errorMessage: string;
 
     constructor(
         private weather: WeatherApi,
@@ -39,7 +41,12 @@ export class CurrentWeatherComponent implements OnInit {
                 lon: pos.lng
             };
             this.showWeatherByCoordinates(this.userCoords);
-        });  
+        }, err => {
+            this.showWeatherByCoordinates(this.userCoords);
+            this.error = true;
+            this.errorMessage = 'Cannot find your current location';
+            console.log(err);
+        }); 
     }
 
     // Calling weather api by coordinate first
