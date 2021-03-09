@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -12,6 +13,8 @@ import { ForecastWeatherComponent } from './weather/forecast/forecast.component'
 import { WeatherApi } from './services/weatherapi.service';
 import { UserLocation } from './services/location.service';
 import { HeaderComponent } from './shared/header/header.component';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 // main app routes
 const appRoutes: Routes = [
@@ -31,7 +34,9 @@ const appRoutes: Routes = [
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FontAwesomeModule,
+    BrowserAnimationsModule
   ],
   providers: [WeatherApi, UserLocation],
   bootstrap: [AppComponent]
