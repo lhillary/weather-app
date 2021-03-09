@@ -4,7 +4,6 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 
 import { Coordinates } from '../models/Coordinates.model';
-import { LocationData } from '../models/LocationData.model';
 import { ENV } from '../core/env.config';
 import { WeatherApi } from './weatherapi.service';
 

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherApi } from '../../services/weatherapi.service';
 import { UserLocation } from '../../services/location.service';
-import { LocationData } from '../../models/LocationData.model';
 import { Coordinates } from '../../models/Coordinates.model';
 @Component({
     selector: 'forecast-weather',
@@ -45,14 +44,6 @@ export class ForecastWeatherComponent implements OnInit {
     // Calling weather api by coordinate first
     showWeatherByCoordinates = (coordinates: Coordinates) => {
         this.weather.getForecastByCoordinates(coordinates).subscribe((data: object) => {
-            this.results = data;
-            this.createForecast(this.results);
-        });
-    }
-
-    // If user opts out of letting the browser know their location, then it defaults to NYC and they can search locations. Alternatively, if user wants to see other locations.
-    showWeather = (location: LocationData) => {
-        this.weather.getForecast(location).subscribe((data: object) => {
             this.results = data;
             this.createForecast(this.results);
         });
