@@ -1,12 +1,18 @@
-<div>
-    {{ city }}, {{ country }}
-</div>
-<div *ngFor="let date of singleForecast"> {{ date }}
-    <div *ngFor="let forecast of forecasts">
-        <div *ngIf="forecast.date === date">
-            {{forecast.time}}
-            {{forecast.main.temp}}
-            <img src={{forecast.iconUrl}} />
+<div class="wa-forecast-container">
+    <h3 class="wa-error" *ngIf="error">{{errorMessage}}</h3>
+    <section class="wa-forecast-title">
+        <h1>{{ city }}, {{ country }}</h1>
+    </section>
+    <section class="wa-forecast-card-container">
+        <div class="wa-forecast-card" *ngFor="let date of singleForecast">
+            <h3>{{ date }}</h3>
+            <div class="wa-forecast-info" *ngFor="let forecast of forecasts">
+                <div class="wa-forecast-content" *ngIf="forecast.date === date">
+                    <p>{{forecast.time}}</p>
+                    <p>{{forecast.main.temp}}&#176; F</p>
+                    <img src={{forecast.iconUrl}} />
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 </div>
